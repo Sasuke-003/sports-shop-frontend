@@ -1,0 +1,31 @@
+.item {
+    width: 45%;
+    object-fit: contain;
+    margin: 20px;
+    -webkit-filter: grayscale(30%) blur(0px);
+    filter: grayscale(30%) blur(0px);
+    transition: 0.4s ease-in-out;
+    border: 2px solid #393e46;
+}
+
+.item__image {
+    width: 100%;
+}
+.item__name {
+    padding: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.item:hover {
+    cursor: pointer;
+    background-color: #222831;
+    -webkit-filter: grayscale(0) blur(0);
+    filter: grayscale(0) blur(0);
+    transition: 0.4s ease-in-out;
+    color: #00adb5;
+}
+
+.item:hover > .item__content > p {
+    color: #eeeeee;
+}
