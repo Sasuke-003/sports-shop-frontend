@@ -1,19 +1,19 @@
-.container {
+.container-c {
     position: relative;
-    margin: 30px;
+    margin: 0px 37px 30px 37px;
     box-shadow: 7px 10px 20px 5px rgba(0, 0, 0, 0.2);
 }
 
-.container .card {
+.container-c .card-c {
     position: relative;
-    width: 320px;
-    height: 450px;
+    width: 400px;
+    height: 600px;
     background: #232323;
     border-radius: 20px;
     overflow: hidden;
 }
 
-.container .card::before {
+.container-c .card-c::before {
     content: "";
     position: absolute;
     top: 0;
@@ -21,28 +21,28 @@
     width: 100%;
     height: 100%;
     background: #9bdc28;
-    clip-path: circle(150px at 80% 20%);
-    /* clip-path: polygon(0% 0%, 0% 100%, 50% 50%, 50% 0%); */
+    /* clip-path: circle(150px at 80% 20%); */
+    clip-path: polygon(0% 0%, 0% 100%, 40% 60%, 40% 0%);
     transition: 0.5s ease-in-out;
 }
 
-.container .card:hover:before {
-    clip-path: circle(300px at 80% -20%);
-    /* clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); */
+.container-c .card-c:hover:before {
+    /* clip-path: circle(300px at 80% -20%); */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
-.container .card:after {
+.container-c .card-c:after {
     content: "Nike";
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: -20%;
-    font-size: 12em;
+    font-size: 18em;
     font-weight: 800;
     font-style: italic;
     color: rgba(255, 255, 255, 0.04);
 }
 
-.container .card .imgBx {
+.container-c .card-c .imgBx-c {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -53,22 +53,38 @@
     object-fit: contain;
 }
 
-.container .card:hover .imgBx {
+.container-c .card-c:hover .imgBx-c {
     top: 0%;
-
-    transform: translateY(0%);
+    transform: translateY(20%);
 }
 
-.container .card .imgBx img {
+.container-c .card-c .imgBx-c img {
     position: absolute;
     object-fit: contain;
-    top: 50%;
+    top: 60%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-25deg);
-    width: 270px;
+    transform: translate(-50%, -50%);
+    width: 300px;
 }
 
-.container .card .contentBx {
+.container-c .card-c .logo-c img {
+    position: absolute;
+    object-fit: contain;
+    top: 2%;
+    left: 10%;
+    width: 80px;
+    z-index: 200000;
+    transition: 1s;
+}
+
+.container-c .card-c:hover .logo-c img {
+    transition: 1s;
+    width: 50px;
+    top: 55%;
+    left: 12%;
+}
+
+.container-c .card-c .contentBx-c {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -76,14 +92,15 @@
     text-align: center;
     transition: 1s;
     z-index: 10;
+    top: 60%;
 }
 
-.container .card:hover .contentBx {
+.container-c .card-c:hover .contentBx-c {
     height: 210px;
 }
 
-.container .card .contentBx .size,
-.container .card .contentBx .color {
+.container-c .card-c .contentBx-c .size-c,
+.container-c .card-c .contentBx-c .color-c {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,20 +110,20 @@
     visibility: hidden;
 }
 
-.container .card:hover .contentBx .size {
+.container-c .card-c:hover .contentBx-c .size-c {
     opacity: 1;
     visibility: visible;
     transition-delay: 0.5s;
 }
 
-.container .card:hover .contentBx .color {
+.container-c .card-c:hover .contentBx-c .color-c {
     opacity: 1;
     visibility: visible;
     transition-delay: 0.6s;
 }
 
-.container .card .contentBx .size h3,
-.container .card .contentBx .color h3 {
+.container-c .card-c .contentBx-c .size-c h3,
+.container-c .card-c .contentBx-c .color-c h3 {
     color: #fff;
     font-weight: 300;
     font-size: 14px;
@@ -115,7 +132,7 @@
     margin-right: 10px;
 }
 
-.container .card .contentBx .size span {
+.container-c .card-c .contentBx-c .size-c span {
     width: 26px;
     height: 26px;
     text-align: center;
@@ -131,7 +148,7 @@
     cursor: pointer;
 }
 
-.container .card .contentBx a {
+.container-c .card-c .contentBx-c a {
     display: inline-block;
     padding: 10px 20px;
     background: #fff;
@@ -143,135 +160,153 @@
     opacity: 0;
 }
 
-.container .card:hover .contentBx a {
+.container-c .card-c:hover .contentBx-c a {
     opacity: 1;
     transform: translateY(0px);
     transition: 0.75s;
 }
 
-.container .card .contentBx a:hover {
+.container-c .card-c .contentBx-c a:hover {
     background: #9bdc28;
     transition: 0s;
+    border: 2px solid #232323;
 }
 
-.container .card .contentBx h2 {
-    top: 80%;
+.container-c .card-c .contentBx-c h2 {
+    top: 25%;
     position: relative;
+    font-size: 2em;
+    margin: 0;
     font-weight: 600;
     letter-spacing: 1px;
     color: #fff;
-
     transition: 0.5s;
     z-index: 10000;
 }
 
-.container .card:hover .contentBx h2 {
-    top: 0%;
+.container-c .card-c:hover .contentBx-c h2 {
+    top: -10%;
     transition: 0.75s;
+    left: 8%;
 }
 
 /*             Nike styles                  */
-.container .Nike:after {
+.container-c .Nike-c:after {
     content: "Nike";
 }
 
 /*             Adidas styles                  */
-.container .Adidas:after {
+.container-c .Adidas-c:after {
     content: "Adidas";
 }
 
 /*             Crocs styles                  */
-.container .Crocs:after {
+.container-c .Crocs-c:after {
     content: "Crocs";
 }
 
 /*      red      */
 
-.container .red::before {
+.container-c .red-c::before {
     background: #d72323;
 }
 
-.container .card .contentBx .size .red1:hover {
+.container-c .card-c .contentBx-c .size-c .red1-c:hover {
     background: #d72323;
+    border: 2px solid #232323;
+    transition: 0s;
 }
 
-.container .card .contentBx .red1.active {
+.container-c .card-c .contentBx-c .red1-c.active-c {
     background: #d72323;
+    border: 2px solid #232323;
 }
 
-.container .card .contentBx .red2:hover {
+.container-c .card-c .contentBx-c .red2-c:hover {
     background: #d72323;
 }
 
 /*      blue      */
 
-.container .blue::before {
-    background: #08b2e3;
+.container-c .blue-c::before {
+    background: #004d98;
 }
 
-.container .card .contentBx .size .blue1:hover {
-    background: #08b2e3;
+.container-c .card-c .contentBx-c .size-c .blue1-c:hover {
+    background: #004d98;
+    border: 2px solid #232323;
+    transition: 0s;
 }
 
-.container .card .contentBx .blue1.active {
-    background: #08b2e3;
+.container-c .card-c .contentBx-c .blue1-c.active-c {
+    background: #004d98;
+    border: 2px solid #232323;
 }
 
-.container .card .contentBx .blue2:hover {
-    background: #08b2e3;
+.container-c .card-c .contentBx-c .blue2-c:hover {
+    background: #004d98;
 }
 
 /*      yellow      */
 
-.container .yellow::before {
+.container-c .yellow-c::before {
     background: #9bdc28;
 }
 
-.container .card .contentBx .size .yellow1:hover {
+.container-c .card-c .contentBx-c .size-c .yellow1-c:hover {
     background: #9bdc28;
+    border: 2px solid #232323;
+    transition: 0s;
 }
 
-.container .card .contentBx .yellow1.active {
+.container-c .card-c .contentBx-c .yellow1-c.active-c {
     background: #9bdc28;
+    border: 2px solid #232323;
 }
 
-.container .card .contentBx .yellow2:hover {
+.container-c .card-c .contentBx-c .yellow2-c:hover {
     background: #9bdc28;
 }
 
 /*      pink      */
 
-.container .pink::before {
+.container-c .pink-c::before {
     background: #d83f87;
 }
 
-.container .card .contentBx .size .pink1:hover {
+.container-c .card-c .contentBx-c .size-c .pink1-c:hover {
     background: #d83f87;
+    border: 2px solid #232323;
+    transition: 0s;
 }
 
-.container .card .contentBx .pink1.active {
+.container-c .card-c .contentBx-c .pink1-c.active {
     background: #d83f87;
+    border: 2px solid #232323;
 }
 
-.container .card .contentBx .pink2:hover {
+.container-c .card-c .contentBx-c .pink2-c:hover {
     background: #d83f87;
 }
 
 /*     green     */
 
-.container .green::before {
+.container-c .green-c::before {
     background: #17b978;
 }
 
-.container .card .contentBx .size .green1:hover {
+.container-c .card-c .contentBx-c .size-c .green1-c:hover {
     background: #17b978;
+    border: 2px solid #232323;
+    transition: 0s;
 }
 
-.container .card .contentBx .green1.active {
+.container-c .card-c .contentBx-c .green1-c.active-c {
     background: #17b978;
+    border: 2px solid #232323;
 }
 
-.container .card .contentBx .green2:hover {
+.container-c .card-c .contentBx-c .green2-c:hover {
     background: #17b978;
 }
 

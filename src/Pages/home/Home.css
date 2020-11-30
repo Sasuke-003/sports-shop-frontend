@@ -6,5 +6,4 @@
 .home__itemsContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
