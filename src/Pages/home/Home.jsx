@@ -6,6 +6,8 @@ import Header from "../../components/header/Header";
 import DisplayClothing from "../../components/displayclothing/DisplayClothing";
 
 function Home() {
+    const [name, setname] = useState("");
+
     const [items, setItems] = useState([
         { itemName: "Nike Neon II", itemImage: "nike1.png", itemType: "Running", itemCompany: "Nike", itemColor: "yellow" },
         { itemName: "Nike Phantom", itemImage: "nike2.png", itemType: "Gym", itemCompany: "Nike", itemColor: "red" },
@@ -39,9 +41,14 @@ function Home() {
     ]);
     return (
         <div className='home'>
+            <Header />
+            <div className='home__top'>
+                <h1 className='home__quote'>Talent without working hard is nothing -Cristiano Ronaldo</h1>
+            </div>
             <div className='home__itemsContainer'>
                 {items.map(({ itemName, itemImage, itemType, itemCompany, itemColor }) => (
                     <DisplayItem
+                        key={itemName}
                         itemImage={"/assets/images/" + itemImage}
                         itemName={itemName}
                         itemType={itemType}
@@ -51,6 +58,7 @@ function Home() {
                 ))}
                 {cloth.map(({ itemName, itemImage, itemLogo, itemCompany, itemColor }) => (
                     <DisplayClothing
+                        key={itemName}
                         itemImage={"/assets/images/" + itemImage}
                         itemName={itemName}
                         itemLogo={"/assets/images/" + itemLogo}

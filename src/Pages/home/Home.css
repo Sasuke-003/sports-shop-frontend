@@ -7,3 +7,12 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.home .home__top {
+    height: 80vh;
+}
+
+.home .home__top .home__quote {
+    font-size: 100px;
+    padding: 100px 0 0 100px;
+}
