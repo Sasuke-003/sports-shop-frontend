@@ -14,18 +14,18 @@
     padding-top: 0px;
     padding-left: 60px;
     color: #17b978;
-    font-size: 60px;
+    font-size: 8vh;
 }
 
 .header .header__links a {
-    padding: 15px;
-    padding-top: 30px;
+    padding: 1.54vh;
+    padding-top: 3.09vh;
     color: #393e46;
     text-decoration: none;
     font-weight: 700;
-    font-size: 20px;
-    margin-right: 20px;
-    border-radius: 0 0 6px 6px;
+    font-size: 2.06vh;
+    margin-right: 2.06vh;
+    border-radius: 0 0 0.619vh 0.619vh;
 }
 
 .header__links {
@@ -52,6 +52,6 @@
 }
 
 .header .header__links a:hover {
-    margin-bottom: 8px;
+    margin-bottom: 0.825vh;
     transition: 0.5s;
 }

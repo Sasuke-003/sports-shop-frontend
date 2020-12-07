@@ -46,26 +46,31 @@ function Home() {
                 <h1 className='home__quote'>Talent without working hard is nothing -Cristiano Ronaldo</h1>
             </div>
             <div className='home__itemsContainer'>
-                {items.map(({ itemName, itemImage, itemType, itemCompany, itemColor }) => (
-                    <DisplayItem
-                        key={itemName}
-                        itemImage={"/assets/images/" + itemImage}
-                        itemName={itemName}
-                        itemType={itemType}
-                        itemCompany={itemCompany}
-                        itemColor={itemColor}
-                    />
-                ))}
-                {cloth.map(({ itemName, itemImage, itemLogo, itemCompany, itemColor }) => (
-                    <DisplayClothing
-                        key={itemName}
-                        itemImage={"/assets/images/" + itemImage}
-                        itemName={itemName}
-                        itemLogo={"/assets/images/" + itemLogo}
-                        itemCompany={itemCompany}
-                        itemColor={itemColor}
-                    />
-                ))}
+                <div className='home__shoes'>
+                    {" "}
+                    {items.map(({ itemName, itemImage, itemType, itemCompany, itemColor }) => (
+                        <DisplayItem
+                            key={itemName}
+                            itemImage={"/assets/images/" + itemImage}
+                            itemName={itemName}
+                            itemType={itemType}
+                            itemCompany={itemCompany}
+                            itemColor={itemColor}
+                        />
+                    ))}
+                </div>
+                <div className='home__tShirts'>
+                    {cloth.map(({ itemName, itemImage, itemLogo, itemCompany, itemColor }) => (
+                        <DisplayClothing
+                            key={itemName}
+                            itemImage={"/assets/images/" + itemImage}
+                            itemName={itemName}
+                            itemLogo={"/assets/images/" + itemLogo}
+                            itemCompany={itemCompany}
+                            itemColor={itemColor}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );

@@ -5,14 +5,25 @@
 
 .home__itemsContainer {
     display: flex;
+    flex-direction: column;
+}
+
+.home__shoes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.home__tShirts {
+    display: flex;
     flex-wrap: wrap;
 }
 
 .home .home__top {
-    height: 80vh;
+    height: 75vh;
 }
 
 .home .home__top .home__quote {
     font-size: 100px;
-    padding: 100px 0 0 100px;
+    padding: 200px 0 0 150px;
+    color: rgb(0, 0, 0);
 }
