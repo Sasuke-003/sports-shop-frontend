@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./Home.css";
 
 import DisplayItem from "../../components/displayitem/DisplayItem";
-import Header from "../../components/header/Header";
+
 import DisplayClothing from "../../components/displayclothing/DisplayClothing";
+import OrderStepper from "../../components/orderStepper/OrderStepper";
 
 function Home() {
     const [name, setname] = useState("");
@@ -100,7 +101,6 @@ function Home() {
     ]);
     return (
         <div className='home'>
-            <Header />
             <div className='home__top'>
                 <img src='/assets/images/home.png' alt='oops'></img>
             </div>

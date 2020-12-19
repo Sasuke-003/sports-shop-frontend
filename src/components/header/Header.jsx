@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 function Header() {
@@ -8,18 +9,18 @@ function Header() {
                 <big>The Sport Shop</big>
             </h2>
             <div class='header__links'>
-                <a key={1} href='#' className='active'>
+                <Link key={1} to='/' className='active'>
                     HOME
-                </a>
-                <a key={2} href='#' className='active'>
+                </Link>
+                <Link key={2} to='/cart' className='active'>
                     CART
-                </a>
-                <a key={3} href='#' className='active'>
+                </Link>
+                <Link key={3} to='/myorders' className='active'>
                     MY ORDERS
-                </a>
-                <a key={4} href='#' className='active'>
+                </Link>
+                <Link key={4} to='/login' className='active'>
                     LOGOUT
-                </a>
+                </Link>
             </div>
         </div>
     );
