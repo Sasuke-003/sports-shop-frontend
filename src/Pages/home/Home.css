@@ -10,20 +10,56 @@
 
 .home__shoes {
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
+}
+
+.home__shoes::-webkit-scrollbar {
+    width: 100vw;
+    height: 1vh;
+}
+.home__shoes::-webkit-scrollbar-track {
+    margin: 0 10px 0 10px;
+    background: #0a0a0a;
+}
+.home__shoes::-webkit-scrollbar-thumb {
+    background: #17b978;
+    border-radius: 10px;
+}
+
+.home__shoes:first-child {
+    margin-left: 0px;
 }
 
 .home__tShirts {
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    margin: 50px 0px 30px 0px;
+}
+
+.home__tShirts::-webkit-scrollbar {
+    width: 100vw;
+    height: 1vh;
+}
+.home__tShirts::-webkit-scrollbar-track {
+    margin: 0 10px 0 10px;
+    background: #0a0a0a;
+}
+.home__tShirts::-webkit-scrollbar-thumb {
+    background: #17b978;
+    border-radius: 10px;
+}
+
+.home__tShirts:first-child {
+    margin-left: 20px;
 }
 
 .home .home__top {
-    height: 75vh;
+    display: flex;
+    justify-content: center;
+    margin: 5vh 0 7vh 0;
 }
 
-.home .home__top .home__quote {
-    font-size: 100px;
-    padding: 200px 0 0 150px;
-    color: rgb(0, 0, 0);
+.home .home__top img {
+    object-fit: contain;
+    opacity: 90%;
 }

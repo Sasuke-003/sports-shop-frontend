@@ -1,14 +1,14 @@
 .container-c {
     position: relative;
-    margin: 0px 37px 30px 37px;
+    margin: 30px 0px 20px 30px;
     /* box-shadow: 7px 10px 20px 5px rgba(0, 0, 0, 0.2); */
 }
 
 .container-c .card-c {
     position: relative;
-    width: 400px;
-    height: 600px;
-    background: #151515;
+    width: 20.83vw;
+    height: 61.91vh;
+    background: #101010;
     border-radius: 20px;
     overflow: hidden;
 }

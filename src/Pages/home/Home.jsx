@@ -13,9 +13,68 @@ function Home() {
         { itemName: "Nike Phantom", itemImage: "nike2.png", itemType: "Gym", itemCompany: "Nike", itemColor: "red" },
         { itemName: "Nike Mercurial", itemImage: "nike3.png", itemType: "Casual", itemCompany: "Nike", itemColor: "pink" },
         { itemName: "Nike Superfly", itemImage: "nike4.png", itemType: "Women Running", itemCompany: "Nike", itemColor: "blue" },
-        { itemName: "Nike Neon II", itemImage: "nike1.png", itemType: "Running", itemCompany: "Nike", itemColor: "green" },
+        { itemName: "Nike Neon II", itemImage: "crocs1.png", itemType: "Clogs", itemCompany: "Crocs", itemColor: "green" },
+        { itemName: "Nike Neon II", itemImage: "nike1.png", itemType: "Running", itemCompany: "Nike", itemColor: "yellow" },
+        { itemName: "Nike Phantom", itemImage: "nike2.png", itemType: "Gym", itemCompany: "Nike", itemColor: "red" },
+        { itemName: "Nike Mercurial", itemImage: "nike3.png", itemType: "Casual", itemCompany: "Nike", itemColor: "pink" },
+        { itemName: "Nike Superfly", itemImage: "nike4.png", itemType: "Women Running", itemCompany: "Nike", itemColor: "blue" },
+        { itemName: "Nike Neon II", itemImage: "crocs1.png", itemType: "Clogs", itemCompany: "Crocs", itemColor: "green" },
+        { itemName: "Nike Neon II", itemImage: "nike1.png", itemType: "Running", itemCompany: "Nike", itemColor: "yellow" },
+        { itemName: "Nike Phantom", itemImage: "nike2.png", itemType: "Gym", itemCompany: "Nike", itemColor: "red" },
+        { itemName: "Nike Mercurial", itemImage: "nike3.png", itemType: "Casual", itemCompany: "Nike", itemColor: "pink" },
+        { itemName: "Nike Superfly", itemImage: "nike4.png", itemType: "Women Running", itemCompany: "Nike", itemColor: "blue" },
+        { itemName: "Nike Neon II", itemImage: "crocs1.png", itemType: "Clogs", itemCompany: "Crocs", itemColor: "green" },
+        { itemName: "Nike Neon II", itemImage: "nike1.png", itemType: "Running", itemCompany: "Nike", itemColor: "yellow" },
+        { itemName: "Nike Phantom", itemImage: "nike2.png", itemType: "Gym", itemCompany: "Nike", itemColor: "red" },
+        { itemName: "Nike Mercurial", itemImage: "nike3.png", itemType: "Casual", itemCompany: "Nike", itemColor: "pink" },
+        { itemName: "Nike Superfly", itemImage: "nike4.png", itemType: "Women Running", itemCompany: "Nike", itemColor: "blue" },
+        { itemName: "Nike Neon II", itemImage: "crocs1.png", itemType: "Clogs", itemCompany: "Crocs", itemColor: "green" },
     ]);
     const [cloth, setCloth] = useState([
+        {
+            itemName: "FC Barcelona",
+            itemImage: "barcelona.png",
+            itemLogo: "barcelonalogo.png",
+            itemCompany: "Nike",
+            itemColor: "blue",
+        },
+        { itemName: "Juventus", itemImage: "juventus.png", itemLogo: "juventuslogo.png", itemCompany: "Adidas", itemColor: "red" },
+        {
+            itemName: "Real Madrid",
+            itemImage: "realmadrid.png",
+            itemLogo: "realmadridlogo.png",
+            itemCompany: "Adidas",
+            itemColor: "green",
+        },
+        {
+            itemName: "Liverpool",
+            itemImage: "liverpool.png",
+            itemLogo: "liverpoollogo.png",
+            itemCompany: "NewBalance",
+            itemColor: "yellow",
+        },
+        {
+            itemName: "FC Barcelona",
+            itemImage: "barcelona.png",
+            itemLogo: "barcelonalogo.png",
+            itemCompany: "Nike",
+            itemColor: "blue",
+        },
+        { itemName: "Juventus", itemImage: "juventus.png", itemLogo: "juventuslogo.png", itemCompany: "Adidas", itemColor: "red" },
+        {
+            itemName: "Real Madrid",
+            itemImage: "realmadrid.png",
+            itemLogo: "realmadridlogo.png",
+            itemCompany: "Adidas",
+            itemColor: "green",
+        },
+        {
+            itemName: "Liverpool",
+            itemImage: "liverpool.png",
+            itemLogo: "liverpoollogo.png",
+            itemCompany: "NewBalance",
+            itemColor: "yellow",
+        },
         {
             itemName: "FC Barcelona",
             itemImage: "barcelona.png",
@@ -43,7 +102,7 @@ function Home() {
         <div className='home'>
             <Header />
             <div className='home__top'>
-                <h1 className='home__quote'>Talent without working hard is nothing -Cristiano Ronaldo</h1>
+                <img src='/assets/images/home.png' alt='oops'></img>
             </div>
             <div className='home__itemsContainer'>
                 <div className='home__shoes'>
