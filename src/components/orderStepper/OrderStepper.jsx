@@ -22,21 +22,6 @@ function getSteps() {
     return ["Order Received", "Order Dispatched", "Out For Delivery", "Delivered"];
 }
 
-// function getStepContent(step) {
-//     switch (step) {
-//         case 0:
-//             return "Order Received";
-//         case 1:
-//             return "Order Dispatched";
-//         case 2:
-//             return "Out For Delivery";
-//         case 3:
-//             return "Delivered";
-//         default:
-//             return "Unknown step";
-//     }
-// }
-
 export default function OrderStepper({ step }) {
     const classes = useStyles();
 

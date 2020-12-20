@@ -1,9 +1,9 @@
 .MuiStepper-root {
-    background: #0a0a0a !important;
+    background: transparent !important;
 }
 
 .MuiTypography-root {
-    color: #ffffff !important;
+    color: #17b978 !important;
 }
 
 .MuiStepIcon-root {

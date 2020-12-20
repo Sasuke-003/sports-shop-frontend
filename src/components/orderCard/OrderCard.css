@@ -1,0 +1,57 @@
+.orderCard {
+    margin: 0 5% 5vh 5%;
+    background: #101010;
+    height: 30vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.orderCard .orderCard__top {
+    display: flex;
+    margin: 0 5% 0 5%;
+    justify-content: space-between;
+}
+
+.orderCard .orderCard__top h3 {
+    padding-top: 3vh;
+    font-size: x-large;
+    color: #9bdc28;
+}
+
+.orderCard .orderCard__top h1 {
+    padding-top: 1vh;
+    font-size: 50px;
+    color: green;
+}
+
+.orderCard .orderCard__middle {
+    margin: 0 0 2vh 5%;
+}
+
+.orderCard .orderCard__middle button {
+    padding: 8px;
+    font-size: larger;
+    background: transparent;
+    border: none;
+    border-radius: 0.619vh;
+    outline: none;
+}
+
+.orderCard .orderCard__middle .orderCard__viewDetails {
+    color: #08b2e3;
+    border-bottom: 7px solid #08b2e3;
+}
+
+.orderCard .orderCard__middle .orderCard__cancelOrder {
+    margin-left: 2%;
+    color: #d72323;
+    border-bottom: 7px solid #d72323;
+}
+
+.orderCard .orderCard__middle button:hover {
+    padding-bottom: 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
