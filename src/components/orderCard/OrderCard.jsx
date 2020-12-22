@@ -6,7 +6,7 @@ function OrderCard({ orderId, price, state }) {
     return (
         <div className='orderCard'>
             <div className='orderCard__top'>
-                <h3>ORDER ID : {orderId}</h3>
+                <h3>ORDERED ON : {orderId}</h3>
                 <h1>${price}</h1>
             </div>
             <div className='orderCard__middle'>

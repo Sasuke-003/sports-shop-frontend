@@ -8,7 +8,7 @@ function Header() {
             <h2 className='header__title'>
                 <big>The Sport Shop</big>
             </h2>
-            <div class='header__links'>
+            <div className='header__links'>
                 <Link key={1} to='/' className='active'>
                     HOME
                 </Link>

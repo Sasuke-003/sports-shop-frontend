@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { Component } from "react";
 import OrderCard from "../../components/orderCard/OrderCard";
 
@@ -7,7 +8,7 @@ class MyOrders extends Component {
         this.state = {
             orders: [
                 {
-                    orderId: "9848566565445656",
+                    orderId: moment().toString().slice(0, 24),
                     price: "500",
                     state: 1,
                 },
