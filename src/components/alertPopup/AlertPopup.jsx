@@ -21,7 +21,7 @@ const theme = createMuiTheme({
     },
 });
 
-export default function AlertPopup({ open, handleClose }) {
+export default function AlertPopup({ open, handleClose, status, message }) {
     const [sOpen, setSopen] = useState(false);
     return (
         <ThemeProvider theme={theme}>
@@ -50,7 +50,7 @@ export default function AlertPopup({ open, handleClose }) {
                         </ThemeProvider>
                     </DialogActions>
                 </Dialog>
-                <Snackbars status='success' message='Successfully Deleted' open={sOpen} handleClose={() => setSopen(false)} />
+                <Snackbars status={status} message={message} open={sOpen} handleClose={() => setSopen(false)} />
             </div>
         </ThemeProvider>
     );

@@ -29,7 +29,7 @@ function OrderCard({ orderId, price, state }) {
             <Popup open={open} handleClose={() => setOpen(false)} orderId={orderId}>
                 <OrderDetails />
             </Popup>
-            <AlertPopup open={alertOpen} handleClose={() => setAlertOpen(false)} />
+            <AlertPopup open={alertOpen} handleClose={() => setAlertOpen(false)} status='success' message='Successfully Canceled Your Order' />
         </div>
     );
 }
