@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -8,6 +8,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import ErrorIcon from "@material-ui/icons/Warning";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import Snackbars from "../snackbars/Snackbars";
 
 const theme = createMuiTheme({
     palette: {
@@ -21,6 +22,7 @@ const theme = createMuiTheme({
 });
 
 export default function AlertPopup({ open, handleClose }) {
+    const [sOpen, setSopen] = useState(false);
     return (
         <ThemeProvider theme={theme}>
             <div>
@@ -36,12 +38,19 @@ export default function AlertPopup({ open, handleClose }) {
                             <Button onClick={handleClose} color='secondary'>
                                 No
                             </Button>
-                            <Button onClick={handleClose} color='primary' autoFocus>
+                            <Button
+                                onClick={() => {
+                                    setSopen(true);
+                                    handleClose();
+                                }}
+                                color='primary'
+                                autoFocus>
                                 Yes
                             </Button>
                         </ThemeProvider>
                     </DialogActions>
                 </Dialog>
+                <Snackbars status='success' message='Successfully Deleted' open={sOpen} handleClose={() => setSopen(false)} />
             </div>
         </ThemeProvider>
     );
