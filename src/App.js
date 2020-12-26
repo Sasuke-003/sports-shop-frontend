@@ -16,7 +16,7 @@ class App extends React.Component {
             <div className='App'>
                 <Header />
                 <Switch>
-                    <Route exact path='/' render={() => (!this.props.currentUser ? <Redirect to='/signin' /> : <Home />)} />
+                    <Route exact path='/' render={() => (!this.props.currentUser ? <Redirect to='/login' /> : <Home />)} />
                     <Route exact path='/login' render={() => (this.props.currentUser ? <Redirect to='/' /> : <Login />)} />
                     <Route exact path='/signup' render={() => (this.props.currentUser ? <Redirect to='/' /> : <SignUp />)} />
                     <Route exact path='/cart' render={() => (this.props.currentUser ? <Cart /> : <Redirect to='/login' />)} />
@@ -28,7 +28,7 @@ class App extends React.Component {
 }
 
 const mapSateToProps = (state) => ({
-    currentUser: state.user.currentUser,
+    currentUser: state.sportShopUser.currentUser,
 });
 
 export default connect(mapSateToProps)(App);

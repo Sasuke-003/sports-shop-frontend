@@ -61,5 +61,6 @@
 
 .home .home__top img {
     object-fit: contain;
+    width: 95vw;
     opacity: 90%;
 }

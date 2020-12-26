@@ -107,9 +107,9 @@ function Home() {
             <div className='home__itemsContainer'>
                 <div className='home__shoes'>
                     {" "}
-                    {items.map(({ itemName, itemImage, itemType, itemCompany, itemColor }) => (
+                    {items.map(({ itemName, itemImage, itemType, itemCompany, itemColor }, index) => (
                         <DisplayItem
-                            key={itemName}
+                            key={itemName + index}
                             itemImage={"/assets/images/" + itemImage}
                             itemName={itemName}
                             itemType={itemType}
@@ -119,9 +119,9 @@ function Home() {
                     ))}
                 </div>
                 <div className='home__tShirts'>
-                    {cloth.map(({ itemName, itemImage, itemLogo, itemCompany, itemColor }) => (
+                    {cloth.map(({ itemName, itemImage, itemLogo, itemCompany, itemColor }, index) => (
                         <DisplayClothing
-                            key={itemName}
+                            key={itemName + index}
                             itemImage={"/assets/images/" + itemImage}
                             itemName={itemName}
                             itemLogo={"/assets/images/" + itemLogo}
