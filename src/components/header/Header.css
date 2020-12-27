@@ -6,7 +6,6 @@
     background-color: #fafafa;
     background: rgba(0, 0, 0, 0);
     justify-content: space-between;
-
     top: 0;
     z-index: 1000;
 }
@@ -15,7 +14,15 @@
     padding-top: 10px;
     padding-left: 60px;
     color: #17b978;
-    font-size: 9vh;
+    font-size: 4.5421vw;
+    transition: 0.4s;
+}
+
+.header .header__title:hover {
+    color: #d83f87;
+    cursor: pointer;
+    font-size: 5.5vw;
+    transition: 0.4s;
 }
 
 .header .header__links a {

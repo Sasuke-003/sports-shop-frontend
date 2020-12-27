@@ -43,9 +43,9 @@ export default function Snackbars({ status, message, open, handleClose }) {
         );
     else
         Alert = (
-            <Alert elevation={6} variant='filled' onClose={handleClose} severity='error'>
+            <MuiAlert elevation={6} variant='filled' onClose={handleClose} severity='error'>
                 Something went wrong!
-            </Alert>
+            </MuiAlert>
         );
 
     return (

@@ -5,6 +5,8 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import Snackbars from "../../components/snackbars/Snackbars";
+import { user } from "../../server/apis/user.api";
 import "./SignUp.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -64,17 +66,38 @@ function SignUp(props) {
     const [rePassword, setRePassword] = useState("");
     const [name, setName] = useState("");
     const [contactNo, setContactNo] = useState("");
-    const [errorStatus, setErrorStatus] = useState(false);
+    const [alertOpen, setAlertOpen] = useState(false);
+    const [errorStatus, setErrorStatus] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
 
-    const handleSubmit = () => {
-        props.setCurrentUser({ Type: "a" });
+    const throwMsg = (status, msg) => {
+        setAlertOpen(true);
+        setErrorStatus(status);
+        setErrorMsg(msg);
+    };
 
+    const handleSubmit = async () => {
+        if (email === "" || name === "" || rePassword === "" || password === "" || contactNo === "") {
+            throwMsg("warning", "Fill all the details");
+            return;
+        }
+        if (isNaN(contactNo)) {
+            throwMsg("warning", "Contact number must only contain integers");
+            return;
+        }
+        if (rePassword !== password) {
+            throwMsg("warning", "Both passwords must be same");
+            return;
+        }
         const userDetails = {
-            name: name,
-            password: password,
-            email: email,
-            contactNo: contactNo,
+            FullName: name,
+            Password: password,
+            Email: email,
+            Type: "a",
         };
+
+        const res = await user.signUp(userDetails);
+        console.log(res);
     };
 
     return (
@@ -106,7 +129,10 @@ function SignUp(props) {
                     onChange={(e) => setRePassword(e.target.value)}
                 />
 
-                <button onClick={handleSubmit}>SIGN UP</button>
+                <button className='SignUp__button' onClick={handleSubmit}>
+                    SIGN UP
+                </button>
+                <Snackbars open={alertOpen} handleClose={() => setAlertOpen(false)} status={errorStatus} message={errorMsg} />
             </div>
         </ThemeProvider>
     );
