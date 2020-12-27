@@ -1,0 +1,45 @@
+.MuiFormLabel-root {
+    color: #ffffff;
+}
+
+.MuiFormControl-root {
+    width: 100% !important;
+}
+
+.MuiOutlinedInput-root {
+    color: white !important;
+}
+
+.MuiFormLabel-root {
+    color: white !important;
+}
+
+.SignUp {
+    display: flex;
+    flex-direction: column;
+    margin: 10vh 30% 0 30%;
+    justify-content: space-between;
+}
+
+.SignUp:nth-child(2) {
+    margin-bottom: 50px !important;
+}
+
+.SignUp button {
+    padding: 1vh 0 1vh 0;
+    border-radius: 12px;
+    border: none;
+    font-size: xx-large;
+    font-weight: 700;
+    background: #d83f87;
+    outline: none;
+    transition: 0.4s;
+}
+
+.SignUp button:hover {
+    background: #17b978;
+    padding: 2vh 0 2vh 0;
+    transition: 0.5s;
+    font-size: 40px;
+    transition: 0.4s;
+}
