@@ -90,14 +90,17 @@ function SignUp(props) {
             return;
         }
         const userDetails = {
-            FullName: name,
-            Password: password,
-            Email: email,
-            Type: "a",
+            name: name,
+            pass: password,
+            email: email,
+            type: "a",
         };
-
-        const res = await user.signUp(userDetails);
-        console.log(res);
+        try {
+            await user.signUp(userDetails);
+            throwMsg("success", "Successfully Registered");
+        } catch (err) {
+            throwMsg("error", err.response.data.info);
+        }
     };
 
     return (

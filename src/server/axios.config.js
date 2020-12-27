@@ -52,7 +52,8 @@ axios.interceptors.response.use(
                     return await api.token.newAccessToken(failedReq);
 
                 default:
-                    if (err?.response?.data?.info) alert(err.response.data.info);
+                    break;
+                // if (err?.response?.data?.info) alert(err.response.data.info);
             }
         return Promise.reject(err);
     }
