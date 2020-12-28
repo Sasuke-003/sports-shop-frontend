@@ -40,5 +40,6 @@
     background: #17b978;
     padding: 2vh 0 2vh 0;
     font-size: 40px;
+    cursor: pointer;
     transition: 0.4s;
 }
