@@ -88,7 +88,7 @@ function Login(props) {
             throwMsg("success", "Loged In Successfully");
             props.setCurrentUser({ Type: "a" });
         } catch (err) {
-            throwMsg("error", err.response.data.info);
+            throwMsg("error", err?.response?.data?.info);
         }
     };
 
@@ -115,7 +115,9 @@ function Login(props) {
                     id='custom-css-outlined-input'
                 />
 
-                <button onClick={handleSubmit}>LOGIN</button>
+                <button className='login__button' onClick={handleSubmit}>
+                    LOGIN
+                </button>
                 <Snackbars open={alertOpen} handleClose={() => setAlertOpen(false)} status={errorStatus} message={errorMsg} />
             </div>
         </ThemeProvider>
