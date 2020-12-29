@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Divider from "@material-ui/core/Divider";
 import { connect } from "react-redux";
-import { addItem, deleteItem } from "../../redux/cart/cart.actions";
+import { addItem, deleteItem } from "../../redux/user/user.actions";
 import "./Cart.css";
 
 class Cart extends Component {
@@ -17,6 +17,7 @@ class Cart extends Component {
         const { cart } = this.props;
         let tPrice = 0;
         const itemList = [];
+        console.log(cart);
         for (const itemName of Object.keys(cart))
             itemList.push({
                 name: itemName,
@@ -108,7 +109,7 @@ class Cart extends Component {
 }
 
 const mapSateToProps = (state) => ({
-    cart: state.cart["cart"],
+    cart: state.sportShopUser.cart,
 });
 
 const mapDispatchToProps = (dispatch) => ({

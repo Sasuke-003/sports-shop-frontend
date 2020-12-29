@@ -17,7 +17,7 @@
 import React, { useState } from "react";
 import "./DisplayItem.css";
 import { connect } from "react-redux";
-import { addItem } from "../../redux/cart/cart.actions";
+import { addItem } from "../../redux/user/user.actions";
 
 function DisplayItem({ itemImage, itemName, itemType, itemCompany, itemColor, itemPrice = 500, addItem }) {
     const [size, setSize] = useState(7);

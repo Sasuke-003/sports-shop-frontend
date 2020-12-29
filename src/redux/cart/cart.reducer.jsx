@@ -1,19 +1,26 @@
 import { CartActionTypes } from "./cart.types";
 
-const INITIAL_STATE = null;
-
 const addDataHandle = (data, prevData) => {
     let postData = prevData;
-
-    if (postData[data.name] == undefined) {
+    console.log(prevData);
+    if (!(data.name in postData)) {
         postData[data.name] = {};
     }
-    if (postData[data.name]["price"] == undefined) {
+    if ("price" in postData[data.name]) {
         postData[data.name]["price"] = data.price;
     }
-    if (postData[data.name][data.size] == undefined) {
+    if (data.size in postData[data.name]) {
         postData[data.name][data.size] = 0;
     }
+    // if (postData[data.name] === undefined) {
+    //     postData[data.name] = {};
+    // }
+    // if (postData[data.name]["price"] === undefined) {
+    //     postData[data.name]["price"] = data.price;
+    // }
+    // if (postData[data.name][data.size] === undefined) {
+    //     postData[data.name][data.size] = 0;
+    // }
 
     postData[data.name][data.size] += 1;
 
@@ -31,17 +38,17 @@ const deleteDataHandle = (data, prevData) => {
     return postData;
 };
 
-const cartReducer = (state = INITIAL_STATE, action) => {
+const cartReducer = (state = {}, action) => {
     switch (action.type) {
         case CartActionTypes.ADD_ITEM:
             return {
                 ...state,
-                cart: addDataHandle(action.payload, state["cart"]),
+                cart: addDataHandle(action.payload, state?.cart),
             };
         case CartActionTypes.DELETE_ITEM:
             return {
                 ...state,
-                cart: deleteDataHandle(action.payload, state["cart"]),
+                cart: deleteDataHandle(action.payload, state.cart),
             };
         default:
             return state;
