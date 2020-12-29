@@ -1,17 +1,17 @@
 import { CartActionTypes } from "./cart.types";
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = null;
 
 const addDataHandle = (data, prevData) => {
     let postData = prevData;
 
-    if (postData[data.name] === undefined) {
+    if (postData[data.name] == undefined) {
         postData[data.name] = {};
     }
-    if (postData[data.name]["price"] === undefined) {
+    if (postData[data.name]["price"] == undefined) {
         postData[data.name]["price"] = data.price;
     }
-    if (postData[data.name][data.size] === undefined) {
+    if (postData[data.name][data.size] == undefined) {
         postData[data.name][data.size] = 0;
     }
 
