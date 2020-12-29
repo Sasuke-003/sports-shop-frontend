@@ -11,6 +11,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import { item } from "../../server/apis/item.api";
+import axios from "axios";
 import "./Admin.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -61,9 +62,9 @@ function Admin() {
     const [name, setName] = useState("");
     const [type, setType] = useState("shoe");
     const [tag, setTag] = useState("");
-    const [image, setImage] = useState("");
+    const [image, setImage] = useState(null);
     const [price, setPrice] = useState("");
-    const [tShirtLogo, setTShirtLogo] = useState("");
+    const [tShirtLogo, setTShirtLogo] = useState(null);
     const [qty1, setQty1] = useState(0);
     const [qty2, setQty2] = useState(0);
     const [qty3, setQty3] = useState(0);
@@ -81,6 +82,7 @@ function Admin() {
     };
 
     const handleSubmit = async () => {
+        // console.log(image);
         let size =
             type === "shoe"
                 ? {
@@ -99,13 +101,14 @@ function Admin() {
         const data = {
             name: name,
             type: type,
-            img: image,
-            logo: tShirtLogo,
+            // img: image,
+            // logo: tShirtLogo,
             tag: tag,
             color: color,
             price: price,
             size_qty: size,
         };
+        console.log(data);
         try {
             await item.add(data);
             throwMsg("success", "successfully added");
@@ -175,8 +178,8 @@ function Admin() {
                     className={classes.margin}
                     label='Size M Qty'
                     variant='outlined'
-                    value={qty1}
-                    onChange={(e) => setQty1(e.target.value)}
+                    value={qty2}
+                    onChange={(e) => setQty2(e.target.value)}
                 />
             )}
             {type === "shoe" ? (
@@ -194,8 +197,8 @@ function Admin() {
                     className={classes.margin}
                     label='Size X Qty'
                     variant='outlined'
-                    value={qty1}
-                    onChange={(e) => setQty1(e.target.value)}
+                    value={qty3}
+                    onChange={(e) => setQty3(e.target.value)}
                 />
             )}
             {type === "shoe" ? (
@@ -213,8 +216,8 @@ function Admin() {
                     className={classes.margin}
                     label='Size XL Qty'
                     variant='outlined'
-                    value={qty1}
-                    onChange={(e) => setQty1(e.target.value)}
+                    value={qty4}
+                    onChange={(e) => setQty4(e.target.value)}
                 />
             )}
             <CssTextField
@@ -240,14 +243,14 @@ function Admin() {
                     <MenuItem value='green'>Green</MenuItem>
                 </Select>
             </FormControl>
-            <div className='fileUploader'>
-                <h3>{type} Image</h3> <input type='file' id='myFile' onChange={(e) => setImage(e.target.files[0])} name='filename' />
-            </div>
-            {type === "tShirt" ? (
+            {/* <div className='fileUploader'>
+                <h3>{type} Image</h3> <input type='file' id='myFile' onChange={(e) => setImage(e.target.value)} name='filename' />
+            </div> */}
+            {/* {type === "tShirt" ? (
                 <div className='fileUploader'>
                     <h3>{type} Logo</h3> <input type='file' id='myLogo' onChange={(e) => setTShirtLogo(e.target.files[0])} name='tShirtLogo' />
                 </div>
-            ) : null}
+            ) : null} */}
             <button className='admin__button' onClick={handleSubmit}>
                 SUBMIT
             </button>

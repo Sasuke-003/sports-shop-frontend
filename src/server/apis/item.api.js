@@ -6,7 +6,7 @@ import axios from "axios";
 const url = {
     add: "/item/add",
     list: "/item/list",
-    imgLink: "/item/img"
+    imgLink: "/item/img",
 };
 
 export const item = {
@@ -14,13 +14,12 @@ export const item = {
         // await validate(validItem.add, newItemData);
         return await axios.post(url.add, newItemData);
     },
-    
+
     list: async () => {
         // params -> pageNo,type,tags=[]
         // await validate(validItem.search, { ItemName });
         // const query = `?pageNo=${pageNo}&type=${type}`;
         // if( tags ) query += "&tags=" + tags.join("&tags=");
-        return await axios.get(url.search );
+        return await axios.get(url.list);
     },
-
 };

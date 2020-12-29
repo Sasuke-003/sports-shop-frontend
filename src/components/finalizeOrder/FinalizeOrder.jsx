@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { setCurrentUser } from "../../redux/user/user.actions";
+
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
+
+import { cart } from "../../server/apis/cart.api";
+import { deleteAllItems } from "../../redux/user/user.actions";
 import Snackbars from "../../components/snackbars/Snackbars";
 import "./FinalizeOrder.css";
 
@@ -58,7 +60,7 @@ const CssTextField = withStyles({
     },
 })(TextField);
 
-function FinalizeOrder() {
+function FinalizeOrder(props) {
     const classes = useStyles();
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");
@@ -73,9 +75,34 @@ function FinalizeOrder() {
         setErrorMsg(msg);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (address === "" || city === "" || pinCode === "" || pinCode === "0") {
             throwMsg("error", "Please fill all the details");
+        }
+
+        const items = JSON.parse(JSON.stringify(props.cart));
+        for (const itemName of Object.keys(items)) {
+            delete items[itemName]["price"];
+        }
+
+        const data = {
+            address: address,
+            cty: city,
+            pin: pinCode,
+            items: items,
+        };
+
+        try {
+            await cart.buy(data);
+            throwMsg("success", "Your Order has been successfully placed");
+            var timer = setTimeout(() => {
+                props.closePopup();
+                props.deleteAllItems();
+                props.updateRedux();
+            }, 1000);
+        } catch (err) {
+            throwMsg("error", err?.response?.data?.info);
+            console.log(err);
         }
     };
 
@@ -109,9 +136,17 @@ function FinalizeOrder() {
             <button className='finalizeOrder__button' onClick={handleSubmit}>
                 PLACE YOUR ORDER
             </button>
-            <Snackbars open={alertOpen} handleClose={() => setAlertOpen(false)} status={errorStatus} message={errorMsg} />
+            <Snackbars open={alertOpen} handleClose={() => setAlertOpen(false)} autoHideDuration={4000} status={errorStatus} message={errorMsg} />
         </div>
     );
 }
 
-export default FinalizeOrder;
+const mapSateToProps = (state) => ({
+    cart: state.sportShopUser.cart,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    deleteAllItems: () => dispatch(deleteAllItems()),
+});
+
+export default connect(mapSateToProps, mapDispatchToProps)(FinalizeOrder);

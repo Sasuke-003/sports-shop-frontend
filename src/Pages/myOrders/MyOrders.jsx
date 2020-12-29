@@ -1,44 +1,29 @@
 import moment from "moment";
 import React, { Component } from "react";
 import OrderCard from "../../components/orderCard/OrderCard";
+import { order } from "../../server/apis/order.api";
 
 class MyOrders extends Component {
     constructor() {
         super();
         this.state = {
-            orders: [
-                {
-                    orderId: moment().toString().slice(0, 24),
-                    price: "500",
-                    state: 1,
-                },
-                {
-                    orderId: "45458578656346546",
-                    price: "999.99",
-                    state: 2,
-                },
-                {
-                    orderId: "89678678678678678",
-                    price: "569.99",
-                    state: 3,
-                },
-                {
-                    orderId: "456965456456456456",
-                    price: "120",
-                    state: 4,
-                },
-                {
-                    orderId: "3837367863786786876",
-                    price: "1000",
-                    state: 4,
-                },
-                {
-                    orderId: "9676546464564564564",
-                    price: "5000",
-                    state: 4,
-                },
-            ],
+            orders: [],
         };
+    }
+
+    getData = async () => {
+        let res = {};
+        try {
+            res = await order.get();
+
+            console.log(res);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    componentDidMount() {
+        this.getData();
     }
 
     render() {

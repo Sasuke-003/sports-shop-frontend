@@ -74,7 +74,7 @@ class Cart extends Component {
                     item.size.map((data, dIndex) => (
                         <div key={uIndex + item.name + dIndex} className='cart__item'>
                             <div className='cart__itemName'>
-                                <img src='/assets/images/nike1.png' alt='oops' />
+                                <img src={"http://localhost:9999/item/img/" + item.name + ".png"} alt='oops' />
                                 <h2>
                                     {item.name} (Size:{data.size})&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;&nbsp;{data.qty}
                                 </h2>
@@ -117,7 +117,7 @@ class Cart extends Component {
                     </div>
                 )}
                 <Popup open={open} handleClose={this.handleOpenClosePopup} heading='Finalize your order' noButton>
-                    <FinalizeOrder />
+                    <FinalizeOrder closePopup={this.handleOpenClosePopup} updateRedux={this.propsToState} />
                 </Popup>
             </div>
         );

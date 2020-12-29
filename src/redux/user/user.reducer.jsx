@@ -51,6 +51,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 cart: deleteDataHandle(action.payload, state["cart"]),
             };
+        case UserActionTypes.DELETE_ALL_ITEMS:
+            return {
+                ...state,
+                cart: {},
+            };
         default:
             return state;
     }

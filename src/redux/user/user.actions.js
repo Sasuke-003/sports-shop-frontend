@@ -14,3 +14,8 @@ export const deleteItem = (item) => ({
     type: UserActionTypes.DELETE_ITEM,
     payload: item,
 });
+
+export const deleteAllItems = () => ({
+    type: UserActionTypes.DELETE_ALL_ITEMS,
+    payload: null,
+});
