@@ -76,6 +76,14 @@ function SignUp(props) {
         setErrorMsg(msg);
     };
 
+    const removeText = () => {
+        setEmail("");
+        setPassword("");
+        setRePassword("");
+        setName("");
+        setContactNo("");
+    };
+
     const handleSubmit = async () => {
         if (email === "" || name === "" || rePassword === "" || password === "" || contactNo === "") {
             throwMsg("warning", "Fill all the details");
@@ -93,7 +101,8 @@ function SignUp(props) {
             name: name,
             pass: password,
             email: email,
-            type: "a",
+            contact: contactNo,
+            type: "e",
         };
         try {
             await user.signUp(userDetails);
@@ -106,9 +115,24 @@ function SignUp(props) {
     return (
         <ThemeProvider theme={theme}>
             <div className='SignUp'>
-                <CssTextField className={classes.margin} label='Name' variant='outlined' value={name} onChange={(e) => setName(e.target.value)} />
-                <CssTextField className={classes.margin} label='Email' variant='outlined' value={email} onChange={(e) => setEmail(e.target.value)} />
                 <CssTextField
+                    autoComplete='off'
+                    className={classes.margin}
+                    label='Name'
+                    variant='outlined'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <CssTextField
+                    autoComplete='off'
+                    className={classes.margin}
+                    label='Email'
+                    variant='outlined'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <CssTextField
+                    autoComplete='off'
                     className={classes.margin}
                     label='Contact No'
                     variant='outlined'
@@ -116,6 +140,7 @@ function SignUp(props) {
                     onChange={(e) => setContactNo(e.target.value)}
                 />
                 <CssTextField
+                    autoComplete='off'
                     className={classes.margin}
                     type='password'
                     variant='outlined'
@@ -124,6 +149,7 @@ function SignUp(props) {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <CssTextField
+                    autoComplete='off'
                     className={classes.margin}
                     type='password'
                     variant='outlined'

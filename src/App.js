@@ -9,6 +9,7 @@ import MyOrders from "./Pages/myOrders/MyOrders";
 
 import Login from "./Pages/login/Login.jsx";
 import SignUp from "./Pages/signup/SignUp";
+import Admin from "./Pages/admin/Admin";
 
 class App extends React.Component {
     render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
                     <Route exact path='/signup' render={() => (this.props.currentUser ? <Redirect to='/' /> : <SignUp />)} />
                     <Route exact path='/cart' render={() => (this.props.currentUser ? <Cart /> : <Redirect to='/login' />)} />
                     <Route exact path='/myorders' render={() => (this.props.currentUser ? <MyOrders /> : <Redirect to='/login' />)} />
+                    <Route exact path='/admin' render={() => (this.props.currentUser ? <Admin /> : <Redirect to='/login' />)} />
                 </Switch>
             </div>
         );

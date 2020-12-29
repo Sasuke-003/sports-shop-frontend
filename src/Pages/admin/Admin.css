@@ -1,0 +1,49 @@
+.admin {
+    display: flex;
+    flex-direction: column;
+    margin: 10vh 30% 0 30%;
+    justify-content: space-between;
+}
+
+.admin .admin__button {
+    padding: 1vh 0 1vh 0;
+    border-radius: 12px;
+    border: none;
+    font-size: xx-large;
+    font-weight: 700;
+    background: #d83f87;
+    outline: none;
+    transition: 0.4s;
+}
+
+.admin .admin__button:hover {
+    background: #17b978;
+    padding: 2vh 0 2vh 0;
+    transition: 0.5s;
+    font-size: 40px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.admin input[type="file"] {
+    background-color: #0a0a0a;
+    color: #08b2e3;
+    outline: none;
+    padding: 1vh;
+}
+
+.admin input#file-upload-button {
+    background-color: #0a0a0a;
+    color: #08b2e3 !important;
+    outline: none;
+    padding: 1vh;
+}
+
+.admin h3 {
+    color: white;
+}
+
+.admin .fileUploader {
+    display: flex;
+    margin-bottom: 3vh;
+}

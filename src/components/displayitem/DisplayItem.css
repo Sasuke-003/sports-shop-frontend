@@ -131,7 +131,7 @@
     cursor: pointer;
 }
 
-.container .card .contentBx a {
+.container .card .contentBx button {
     display: inline-block;
     padding: 10px 20px;
     background: #fff;
@@ -143,13 +143,13 @@
     opacity: 0;
 }
 
-.container .card:hover .contentBx a {
+.container .card:hover .contentBx button {
     opacity: 1;
     transform: translateY(0px);
     transition: 0.75s;
 }
 
-.container .card .contentBx a:hover {
+.container .card .contentBx button:hover {
     background: #9bdc28;
     transition: 0s;
 }

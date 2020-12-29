@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import Badge from "@material-ui/core/Badge";
 import "./Header.css";
 
 import { user } from "../../server/apis/user.api";
@@ -16,9 +17,13 @@ function Header(props) {
                     <Link key={1} to='/' className='active'>
                         HOME
                     </Link>
+
                     <Link key={2} to='/cart' className='active'>
-                        CART
+                        <Badge badgeContent='4154' invisible={true}>
+                            CART
+                        </Badge>
                     </Link>
+
                     <Link key={3} to='/myorders' className='active'>
                         MY ORDERS
                     </Link>

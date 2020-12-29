@@ -7,7 +7,8 @@
     background: rgba(0, 0, 0, 0);
     justify-content: space-between;
     top: 0;
-    z-index: 1000;
+    z-index: 9999999;
+    /* position: sticky; */
 }
 
 .header .header__title {

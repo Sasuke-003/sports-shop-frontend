@@ -16,9 +16,16 @@
 
 import React, { useState } from "react";
 import "./DisplayItem.css";
+import { connect } from "react-redux";
+import { addItem } from "../../redux/cart/cart.actions";
 
-function DisplayItem({ itemImage, itemName, itemType, itemCompany, itemColor }) {
+function DisplayItem({ itemImage, itemName, itemType, itemCompany, itemColor, itemPrice = 500, addItem }) {
     const [size, setSize] = useState(7);
+
+    const handleSubmit = () => {
+        addItem({ name: itemName, size: size, price: itemPrice });
+    };
+
     return (
         <div className='container'>
             <div className={`card ${itemCompany} ${itemColor}`}>
@@ -46,13 +53,20 @@ function DisplayItem({ itemImage, itemName, itemType, itemCompany, itemColor }) 
                     <div className='color'>
                         <h3>Shoe Type : {itemType}</h3>
                     </div>
-                    <a className={`${itemColor}2`} href='#'>
+                    <div className='color'>
+                        <h3>Price : {itemPrice}</h3>
+                    </div>
+                    <button className={`${itemColor}2`} onClick={handleSubmit}>
                         Add to Cart
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default DisplayItem;
+const mapDispatchToProps = (dispatch) => ({
+    addItem: (item) => dispatch(addItem(item)),
+});
+
+export default connect(null, mapDispatchToProps)(DisplayItem);
