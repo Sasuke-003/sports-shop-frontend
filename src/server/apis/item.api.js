@@ -15,18 +15,12 @@ export const item = {
         return await axios.post(url.add, newItemData);
     },
     
-    list: async (pageNo,type,tags=[]) => {
+    list: async () => {
+        // params -> pageNo,type,tags=[]
         // await validate(validItem.search, { ItemName });
-        const query = `?pageNo=${pageNo}&type=${type}`;
-        if( tags ) query += "&tags=" + tags.join("&tags=");
-        return await axios.get(url.search + query);
-    },
-
-
-    imgLink: async (itemName) => {
-        // await validate(validItem.detail, { ItemName });
-        const query = `?itemName=${itemName}`;
-        return await axios.get(url.imgLink + query);
+        // const query = `?pageNo=${pageNo}&type=${type}`;
+        // if( tags ) query += "&tags=" + tags.join("&tags=");
+        return await axios.get(url.search );
     },
 
 };
