@@ -6,16 +6,11 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
 import Snackbars from "../../components/snackbars/Snackbars";
-import { user } from "../../server/apis/user.api";
-
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
-
 import Select from "@material-ui/core/Select";
+import { item } from "../../server/apis/item.api";
 import "./Admin.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -111,6 +106,12 @@ function Admin() {
             price: price,
             size_qty: size,
         };
+        try {
+            await item.add(data);
+            throwMsg("success", "successfully added");
+        } catch (err) {
+            throwMsg("error", err?.response?.data?.info);
+        }
     };
 
     return (
