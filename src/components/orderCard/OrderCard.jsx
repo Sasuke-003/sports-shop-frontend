@@ -26,7 +26,7 @@ function OrderCard({ orderId, price, state }) {
             </div>
 
             <OrderStepper step={state} />
-            <Popup open={open} handleClose={() => setOpen(false)} orderId={orderId}>
+            <Popup open={open} handleClose={() => setOpen(false)} heading={"Order Id : " + orderId}>
                 <OrderDetails />
             </Popup>
             <AlertPopup open={alertOpen} handleClose={() => setAlertOpen(false)} status='success' message='Successfully Canceled Your Order' />

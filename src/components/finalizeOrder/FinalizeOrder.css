@@ -1,0 +1,21 @@
+.finalizeOrder .finalizeOrder__button {
+    padding: 1vh 0 1vh 0;
+    border-radius: 5px;
+    border: none;
+    font-size: xx-large;
+    font-weight: 700;
+    /* background: #d83f87; */
+    background: #17b978;
+    outline: none;
+    transition: 0.4s;
+    width: 100%;
+}
+
+.finalizeOrder .finalizeOrder__button:hover {
+    /* background: #17b978; */
+    background: #d83f87;
+    padding: 2vh 0 2vh 0;
+    font-size: 40px;
+    cursor: pointer;
+    transition: 0.4s;
+}

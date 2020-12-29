@@ -1,29 +1,16 @@
-// import React from "react";
-// import "./DisplayItem.css";
-
-// function DisplayItem({ itemImage, itemName }) {
-//     return (
-//         <div className='item'>
-//             <img src={itemImage} className='item__image' alt='oops...' />
-//             <div className='item__content'>
-//                 <h1 className='item__name'>{itemName}</h1>
-//             </div>
-//         </div>
-//     );
-// }
-
-// export default DisplayItem;
-
 import React, { useState } from "react";
 import "./DisplayItem.css";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/user/user.actions";
+import Snackbars from "../../components/snackbars/Snackbars";
 
 function DisplayItem({ itemImage, itemName, itemType, itemCompany, itemColor, itemPrice = 500, addItem }) {
     const [size, setSize] = useState(7);
+    const [alertOpen, setAlertOpen] = useState(false);
 
     const handleSubmit = () => {
         addItem({ name: itemName, size: size, price: itemPrice });
+        setAlertOpen(true);
     };
 
     return (
@@ -54,13 +41,20 @@ function DisplayItem({ itemImage, itemName, itemType, itemCompany, itemColor, it
                         <h3>Shoe Type : {itemType}</h3>
                     </div>
                     <div className='color'>
-                        <h3>Price : {itemPrice}</h3>
+                        <h3>Price : ${itemPrice}</h3>
                     </div>
                     <button className={`${itemColor}2`} onClick={handleSubmit}>
                         Add to Cart
                     </button>
                 </div>
             </div>
+            <Snackbars
+                open={alertOpen}
+                handleClose={() => setAlertOpen(false)}
+                status='success'
+                message={"Successfully added " + itemName + " to the cart"}
+                autoHideDuration={1000}
+            />
         </div>
     );
 }

@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import "./DisplayClothing.css";
+import { connect } from "react-redux";
+import { addItem } from "../../redux/user/user.actions";
+import Snackbars from "../../components/snackbars/Snackbars";
 
-function DisplayClothing({ itemImage, itemName, itemLogo, itemCompany, itemColor }) {
-    const [size, setSize] = useState(7);
+function DisplayClothing({ itemImage, itemName, itemLogo, itemCompany, itemColor, itemPrice = 1000, addItem }) {
+    const [size, setSize] = useState("S");
+    const [alertOpen, setAlertOpen] = useState(false);
+
+    const handleSubmit = () => {
+        addItem({ name: itemName, size: size, price: itemPrice });
+        setAlertOpen(true);
+    };
+
     return (
         <div className='container-c'>
             <div className={`card-c ${itemCompany}-c ${itemColor}-c`}>
@@ -16,30 +26,41 @@ function DisplayClothing({ itemImage, itemName, itemLogo, itemCompany, itemColor
                     <h2>{itemName}</h2>
                     <div className='size-c'>
                         <h3>Size :</h3>
-                        <span className={`${itemColor}1-c  ${size === 7 ? "active-c" : ""}`} onClick={() => setSize(7)}>
+                        <span className={`${itemColor}1-c  ${size === "S" ? "active-c" : ""}`} onClick={() => setSize("S")}>
                             S
                         </span>
-                        <span className={`${itemColor}1-c ${size === 8 ? "active-c" : ""}`} onClick={() => setSize(8)}>
+                        <span className={`${itemColor}1-c ${size === "M" ? "active-c" : ""}`} onClick={() => setSize("M")}>
                             M
                         </span>
-                        <span className={`${itemColor}1-c ${size === 9 ? "active-c" : ""}`} onClick={() => setSize(9)}>
+                        <span className={`${itemColor}1-c ${size === "L" ? "active-c" : ""}`} onClick={() => setSize("L")}>
                             L
                         </span>
-                        <span className={`${itemColor}1-c ${size === 10 ? "active-c" : ""}`} onClick={() => setSize(10)}>
+                        <span className={`${itemColor}1-c ${size === "XL" ? "active-c" : ""}`} onClick={() => setSize("XL")}>
                             XL
                         </span>
                     </div>
 
                     <div className='color-c'>
-                        <h3>T-Shirt Number : 7</h3>
+                        <h3>Price : ${itemPrice}</h3>
                     </div>
-                    <a className={`${itemColor}2-c`} href='#'>
+                    <button className={`${itemColor}2-c`} onClick={handleSubmit}>
                         Add to Cart
-                    </a>
+                    </button>
                 </div>
             </div>
+            <Snackbars
+                open={alertOpen}
+                handleClose={() => setAlertOpen(false)}
+                status='success'
+                message={"Successfully added " + itemName + " to the cart"}
+                autoHideDuration={1000}
+            />
         </div>
     );
 }
 
-export default DisplayClothing;
+const mapDispatchToProps = (dispatch) => ({
+    addItem: (item) => dispatch(addItem(item)),
+});
+
+export default connect(null, mapDispatchToProps)(DisplayClothing);

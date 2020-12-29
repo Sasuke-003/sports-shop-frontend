@@ -44,18 +44,20 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 const Popup = (props) => {
-    const { open, handleClose, orderId } = props;
+    const { open, handleClose, heading, noButton = false } = props;
     return (
         <div className='popup'>
             <Dialog onClose={handleClose} aria-labelledby='customized-dialog-title' fullWidth='xl' maxWidth='md' open={open}>
                 <DialogTitle id='customized-dialog-title' onClose={handleClose}>
-                    Order Id : {orderId}
+                    {heading}
                 </DialogTitle>
                 <DialogContent dividers>{props.children}</DialogContent>
                 <DialogActions>
-                    <Button autoFocus onClick={handleClose} color='primary'>
-                        OK
-                    </Button>
+                    {!noButton ? (
+                        <Button autoFocus onClick={handleClose} color='primary'>
+                            OK
+                        </Button>
+                    ) : null}
                 </DialogActions>
             </Dialog>
         </div>

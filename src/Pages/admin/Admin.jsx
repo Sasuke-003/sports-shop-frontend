@@ -10,6 +10,12 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import Snackbars from "../../components/snackbars/Snackbars";
 import { user } from "../../server/apis/user.api";
+
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+
+import Select from "@material-ui/core/Select";
 import "./Admin.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -59,10 +65,15 @@ function Admin() {
 
     const [name, setName] = useState("");
     const [type, setType] = useState("shoe");
-    const [shoeType, setShoeType] = useState("");
+    const [tag, setTag] = useState("");
     const [image, setImage] = useState("");
+    const [price, setPrice] = useState("");
     const [tShirtLogo, setTShirtLogo] = useState("");
-    const [company, setCompany] = useState("");
+    const [qty1, setQty1] = useState(0);
+    const [qty2, setQty2] = useState(0);
+    const [qty3, setQty3] = useState(0);
+    const [qty4, setQty4] = useState(0);
+
     const [color, setColor] = useState("");
     const [alertOpen, setAlertOpen] = useState(false);
     const [errorStatus, setErrorStatus] = useState("");
@@ -74,7 +85,33 @@ function Admin() {
         setErrorMsg(msg);
     };
 
-    const handleSubmit = async () => {};
+    const handleSubmit = async () => {
+        let size =
+            type === "shoe"
+                ? {
+                      7: qty1,
+                      8: qty2,
+                      9: qty3,
+                      10: qty4,
+                  }
+                : {
+                      S: qty1,
+                      M: qty2,
+                      X: qty3,
+                      XL: qty4,
+                  };
+
+        const data = {
+            name: name,
+            type: type,
+            img: image,
+            logo: tShirtLogo,
+            tag: tag,
+            color: color,
+            price: price,
+            size_qty: size,
+        };
+    };
 
     return (
         <div className='admin'>
@@ -93,28 +130,118 @@ function Admin() {
                     <FormControlLabel value='tShirt' control={<Radio />} label='T-Shirt' />
                 </RadioGroup>
             </FormControl>
-            <CssTextField
-                autoComplete='off'
-                className={classes.margin}
-                label='Company'
-                variant='outlined'
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-            />
             {type === "shoe" ? (
                 <CssTextField
                     autoComplete='off'
                     className={classes.margin}
                     label='Shoe Type'
                     variant='outlined'
-                    value={shoeType}
-                    onChange={(e) => setShoeType(e.target.value)}
+                    value={tag}
+                    onChange={(e) => setTag(e.target.value)}
                 />
             ) : null}
+            {type === "shoe" ? (
+                <CssTextField
+                    autoComplete='off'
+                    className={classes.margin}
+                    label='Size 7 Qty'
+                    variant='outlined'
+                    value={qty1}
+                    onChange={(e) => setQty1(e.target.value)}
+                />
+            ) : (
+                <CssTextField
+                    autoComplete='off'
+                    className={classes.margin}
+                    label='Size S Qty'
+                    variant='outlined'
+                    value={qty1}
+                    onChange={(e) => setQty1(e.target.value)}
+                />
+            )}{" "}
+            {type === "shoe" ? (
+                <CssTextField
+                    autoComplete='off'
+                    className={classes.margin}
+                    label='Size 8 Qty'
+                    variant='outlined'
+                    value={qty2}
+                    onChange={(e) => setQty2(e.target.value)}
+                />
+            ) : (
+                <CssTextField
+                    autoComplete='off'
+                    className={classes.margin}
+                    label='Size M Qty'
+                    variant='outlined'
+                    value={qty1}
+                    onChange={(e) => setQty1(e.target.value)}
+                />
+            )}
+            {type === "shoe" ? (
+                <CssTextField
+                    autoComplete='off'
+                    className={classes.margin}
+                    label='Size 9 Qty'
+                    variant='outlined'
+                    value={qty3}
+                    onChange={(e) => setQty3(e.target.value)}
+                />
+            ) : (
+                <CssTextField
+                    autoComplete='off'
+                    className={classes.margin}
+                    label='Size X Qty'
+                    variant='outlined'
+                    value={qty1}
+                    onChange={(e) => setQty1(e.target.value)}
+                />
+            )}
+            {type === "shoe" ? (
+                <CssTextField
+                    autoComplete='off'
+                    className={classes.margin}
+                    label='Size 10 Qty'
+                    variant='outlined'
+                    value={qty4}
+                    onChange={(e) => setQty4(e.target.value)}
+                />
+            ) : (
+                <CssTextField
+                    autoComplete='off'
+                    className={classes.margin}
+                    label='Size XL Qty'
+                    variant='outlined'
+                    value={qty1}
+                    onChange={(e) => setQty1(e.target.value)}
+                />
+            )}
+            <CssTextField
+                autoComplete='off'
+                className={classes.margin}
+                label='Price'
+                variant='outlined'
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+            />
+            <FormControl variant='outlined' className={classes.margin}>
+                <InputLabel id='demo-simple-select-outlined-label'>Color</InputLabel>
+                <Select
+                    labelId='demo-simple-select-outlined-label'
+                    id='demo-simple-select-outlined'
+                    value={color}
+                    onChange={(e) => setColor(e.target.value)}
+                    label='Color'>
+                    <MenuItem value='red'>Red</MenuItem>
+                    <MenuItem value='yellow'>Yellow</MenuItem>
+                    <MenuItem value='pink'>Pink</MenuItem>
+                    <MenuItem value='blue'>Blue</MenuItem>
+                    <MenuItem value='green'>Green</MenuItem>
+                </Select>
+            </FormControl>
             <div className='fileUploader'>
                 <h3>{type} Image</h3> <input type='file' id='myFile' onChange={(e) => setImage(e.target.files[0])} name='filename' />
             </div>
-
             {type === "tShirt" ? (
                 <div className='fileUploader'>
                     <h3>{type} Logo</h3> <input type='file' id='myLogo' onChange={(e) => setTShirtLogo(e.target.files[0])} name='tShirtLogo' />
