@@ -83,20 +83,38 @@ function SignUp(props) {
         setName("");
         setContactNo("");
     };
+    function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        console.log(re.test(String(email).toLowerCase()));
+        return re.test(String(email).toLowerCase());
+    }
 
     const handleSubmit = async () => {
         if (email === "" || name === "" || rePassword === "" || password === "" || contactNo === "") {
             throwMsg("warning", "Fill all the details");
             return;
         }
+        if (!validateEmail(email)) {
+            throwMsg("warning", "Please enter valid email address");
+            return;
+        }
         if (isNaN(contactNo)) {
             throwMsg("warning", "Contact number must only contain integers");
+            return;
+        }
+        if (password.length < 8) {
+            throwMsg("warning", "Contact number must only contain integers");
+            return;
+        }
+        if (password.length < 8) {
+            throwMsg("warning", "Password must be at least 8 characters");
             return;
         }
         if (rePassword !== password) {
             throwMsg("warning", "Both passwords must be same");
             return;
         }
+
         const userDetails = {
             name: name,
             pass: password,
@@ -112,6 +130,35 @@ function SignUp(props) {
         }
     };
 
+    const handleChangeName = (e) => {
+        var value = e.target.value;
+        let pattern = /^[a-zA-Z ]*$/;
+        let result = value.match(pattern);
+        if (result !== null) setName(result[0]);
+    };
+
+    const handleChangeContactNo = (e) => {
+        var value = e.target.value;
+        // let pattern = /^[a-zA-Z ]*$/;
+        // let result = value.match(pattern);
+        // if (result !== null) setName(result[0]);
+        if (value.length <= 10) setContactNo(value);
+    };
+    const handleChangePassword = (e) => {
+        var value = e.target.value;
+        // let pattern = /^[a-zA-Z ]*$/;
+        // let result = value.match(pattern);
+        // if (result !== null) setName(result[0]);
+        if (value.length <= 16) setPassword(value);
+    };
+    const handleChangeRePassword = (e) => {
+        var value = e.target.value;
+        // let pattern = /^[a-zA-Z ]*$/;
+        // let result = value.match(pattern);
+        // if (result !== null) setName(result[0]);
+        if (value.length <= 16) setRePassword(value);
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <div className='SignUp'>
@@ -121,7 +168,10 @@ function SignUp(props) {
                     label='Name'
                     variant='outlined'
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    InputProps={{
+                        pattern: "[A-Za-z]",
+                    }}
+                    onChange={handleChangeName}
                 />
                 <CssTextField
                     autoComplete='off'
@@ -135,9 +185,10 @@ function SignUp(props) {
                     autoComplete='off'
                     className={classes.margin}
                     label='Contact No'
+                    type='number'
                     variant='outlined'
                     value={contactNo}
-                    onChange={(e) => setContactNo(e.target.value)}
+                    onChange={handleChangeContactNo}
                 />
                 <CssTextField
                     autoComplete='off'
@@ -146,7 +197,7 @@ function SignUp(props) {
                     variant='outlined'
                     value={password}
                     label='Password'
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={handleChangePassword}
                 />
                 <CssTextField
                     autoComplete='off'
@@ -155,7 +206,7 @@ function SignUp(props) {
                     variant='outlined'
                     value={rePassword}
                     label='Re-Enter Password'
-                    onChange={(e) => setRePassword(e.target.value)}
+                    onChange={handleChangeRePassword}
                 />
 
                 <button className='SignUp__button' onClick={handleSubmit}>

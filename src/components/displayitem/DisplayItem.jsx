@@ -41,7 +41,7 @@ function DisplayItem({ itemImage, itemName, itemType, itemCompany, itemColor, it
                         <h3>Shoe Type : {itemType}</h3>
                     </div>
                     <div className='color'>
-                        <h3>Price : ${itemPrice}</h3>
+                        <h3>Price : Rs.{itemPrice}</h3>
                     </div>
                     <button className={`${itemColor}2`} onClick={handleSubmit}>
                         Add to Cart

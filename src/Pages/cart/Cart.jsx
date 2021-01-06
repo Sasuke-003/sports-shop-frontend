@@ -81,7 +81,7 @@ class Cart extends Component {
                             </div>
                             <div className='cart__itemPrice'>
                                 <h2>
-                                    ${item.price}&nbsp;&nbsp;&nbsp;x &nbsp;&nbsp;&nbsp;{data.qty}&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;$
+                                    Rs.{item.price}&nbsp;&nbsp;&nbsp;x &nbsp;&nbsp;&nbsp;{data.qty}&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;Rs.
                                     {item.price * data.qty}
                                 </h2>
                             </div>
@@ -110,7 +110,7 @@ class Cart extends Component {
                     <h1 className='cart__empty'>Your cart is empty!</h1>
                 ) : (
                     <div className='cart__buy'>
-                        <h1>Total Price &nbsp;:&nbsp;&nbsp;${totalPrice}</h1>
+                        <h1>Total Price &nbsp;:&nbsp;&nbsp;Rs.{totalPrice}</h1>
                         <button className='cart__button' onClick={this.handleOpenClosePopup}>
                             BUY NOW
                         </button>

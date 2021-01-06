@@ -41,7 +41,7 @@ function DisplayClothing({ itemImage, itemName, itemLogo, itemCompany, itemColor
                     </div>
 
                     <div className='color-c'>
-                        <h3>Price : ${itemPrice}</h3>
+                        <h3>Price : Rs.{itemPrice}</h3>
                     </div>
                     <button className={`${itemColor}2-c`} onClick={handleSubmit}>
                         Add to Cart

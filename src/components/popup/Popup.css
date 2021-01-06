@@ -5,3 +5,7 @@
 .MuiButton-textPrimary {
     color: #08b2e3 !important;
 }
+
+.MuiDialogTitle-root .MuiTypography-root {
+    color: green !important;
+}

@@ -55,3 +55,7 @@
     cursor: pointer;
     transition: 0.2s;
 }
+.orderCard .orderCard__middle h3 {
+    padding-top: 5vh;
+    color: red;
+}

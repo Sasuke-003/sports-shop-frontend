@@ -21,7 +21,7 @@ const theme = createMuiTheme({
     },
 });
 
-export default function AlertPopup({ open, handleClose, status, message }) {
+export default function AlertPopup({ open, handleClose, status, message, handleCancel, getData }) {
     const [sOpen, setSopen] = useState(false);
     return (
         <ThemeProvider theme={theme}>
@@ -31,7 +31,9 @@ export default function AlertPopup({ open, handleClose, status, message }) {
                         <ErrorIcon color='primary' />
                     </DialogTitle>
                     <DialogContent>
-                        <DialogContentText id='alert-dialog-description'>Do you really want to cancel this order?</DialogContentText>
+                        <DialogContentText color='secondary' id='alert-dialog-description'>
+                            Do you really want to cancel this order?
+                        </DialogContentText>
                     </DialogContent>
                     <DialogActions>
                         <ThemeProvider theme={theme}>
@@ -42,6 +44,9 @@ export default function AlertPopup({ open, handleClose, status, message }) {
                                 onClick={() => {
                                     setSopen(true);
                                     handleClose();
+                                    handleCancel();
+                                    getData();
+                                    window.location.reload();
                                 }}
                                 color='primary'
                                 autoFocus>
